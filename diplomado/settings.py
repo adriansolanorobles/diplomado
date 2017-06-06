@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@_i9x9qn$!96lx024t)tln!qy(lv(&(xlehnib6-)7od+0^5yx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'diplomado.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'diplomado.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'diplomado_db',
-        'USER': 'diplomado_admin',
-        'PASSWORD' : 'pass1234$',
-        'HOST' : 'localhost',
-        'PORT' : '5432'
+        'NAME': os.getenv('DBNAME',''),
+        'USER': os.getenv('DBUSER',''),
+        'PASSWORD': os.getenv('DBPASSWORD',''),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -134,3 +134,10 @@ STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.getcwd(),'media')
+
+
+try:
+    from .local_settings import *
+
+except:
+    pass
