@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-import datetime
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2tlpk35#!dk+#l#(n^kcugw%&!$n#(68x1w*&ygq*kn-6agy_b'
+SECRET_KEY = '@_i9x9qn$!96lx024t)tln!qy(lv(&(xlehnib6-)7od+0^5yx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'diplomado.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'diplomado.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DBNAME',''),
-        'USER': os.getenv('DBUSER',''),
-        'PASSWORD': os.getenv('DBPASSWORD',''),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'diplomado_db',
+        'USER': 'diplomado_admin',
+        'PASSWORD' : 'pass1234$',
+        'HOST' : 'localhost',
+        'PORT' : '5432'
     }
 }
 
@@ -112,14 +112,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 AUTH_USER_MODEL = "users.User"
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
-LOGIN_REDIRECT_URL = 'modulo_cuantro/login/'
 
-LANGUAGE_CODE = 'es-mx'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Mexico_City'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -128,18 +128,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]
 
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.getcwd(),'media')
-
-try:
-    from .local_settings import *
-
-except:
-    pass

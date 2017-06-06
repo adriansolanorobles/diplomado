@@ -1,0 +1,29 @@
+{% extends "base_panel.html"%}
+{% block content%}
+
+<form action="{% url 'modulo_cuatro:add_archivo' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>
+        <strong>
+       
+        {{ form.errors }}    
+        </strong> 
+    </h2>
+        
+
+    <div class="form-group">
+     		 <label>Archivo</label>             		
+              {{form_archivo.upload}}
+              
+	</div>
+    <div class="form-group">
+        <input type="hidden" name="etapa_id" value="4">
+    </div>
+
+    <div class="form-group">
+	
+		<input class="btn btn-success" type="submit" name="submit" value="Guardar">
+	</div>
+</form>
+
+{% endblock%}
