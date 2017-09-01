@@ -136,7 +136,7 @@ def update_user(request):
                 return redirect('modulo_cuatro:exito')
     else:
         return redirect('modulo_cuatro:exito')    
-
+    return render(request,'modulo_cuatro/registro.html',{'form':form})    
 
 def login(request):
     form = LoginForm(request.POST or None)
