@@ -71,7 +71,9 @@
           {% if user.is_authenticated %}
           <ul class="nav nav-sidebar">
               <li class="active"><a href="#">Bienvenido: {{request.user.nombre}} {{request.user.apellido_paterno}} <span class="sr-only">(current)</span></a></li>
-
+               <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
 	            
           </ul>
           {% endif %}  
