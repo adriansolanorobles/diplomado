@@ -129,7 +129,7 @@ def update_user(request):
                 u.apellido_paterno = request.POST['apellido_paterno']
                 u.apellido_materno = request.POST['apellido_materno']
                 u.telefono = request.POST['telefono']
-                u.sexo = request.POST['sexo']
+                #u.sexo = request.POST['sexo']
                 u.save()
                 modulo_cuatro_actualiza(u,2)
                 modulo_cuatro_actualiza(u,3)  
