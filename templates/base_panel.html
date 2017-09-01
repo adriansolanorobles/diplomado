@@ -66,7 +66,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            
+          {% if user.is_authenticated %}
+          <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">Bienvenido: {{request.user.nombre}} {{request.user.apellido_paterno}} <span class="sr-only">(current)</span></a></li>
+
+	            <li><a href="#"></a></li>
+          </ul>
+          {% endif %}  
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                                        
