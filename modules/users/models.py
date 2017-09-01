@@ -33,7 +33,7 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     apellido_materno = models.CharField(max_length=50)
     telefono = models.CharField(max_length=22)
     email = models.EmailField(unique=True, max_length=50)
-    #sexo = models.CharField(choices=(('M', 'Mujer'), ('H', 'Hombre')), max_length=16, blank=True, null=True)
+    sexo = models.CharField(choices=(('M', 'Mujer'), ('H', 'Hombre')), max_length=16, blank=True, null=True)
 
     # intermediario entre trans de cada modelo, object managaer de cada modelo
     objects = UserManager()
