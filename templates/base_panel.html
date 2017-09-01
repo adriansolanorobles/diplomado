@@ -48,9 +48,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-          {% if user.is_authenticated %}
-          Bienvenido: {{request.user.nombre}}   {{request.user.apellido_paterno}} 
-          {% endif %} Al
+      
           Diplomado Habilidades para Adolescentes, Módulo 4</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -69,6 +67,15 @@
     </nav>
     <div class="container-fluid">
       <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          {% if user.is_authenticated %}
+          <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">Bienvenido: {{request.user.nombre}} {{request.user.apellido_paterno}} <span class="sr-only">(current)</span></a></li>
+
+	            
+          </ul>
+          {% endif %}  
+        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                                        
                     {% block content%}
