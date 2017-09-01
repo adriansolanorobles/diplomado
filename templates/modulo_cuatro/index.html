@@ -5,7 +5,15 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"><h3>Módulo 4. Implementación de habilidades para la vida en el salón de clases</h3></div>
+  <div class="panel-heading">
+  <h2>
+          {% if user.is_authenticated %}
+          Bienvenido: {{request.user.nombre}} {{request.user.apellido_paterno}} 
+
+            
+          {% endif %}
+  </h2>
+  <h3>Módulo 4. Implementación de habilidades para la vida en el salón de clases</h3></div>
        <p><b>Modalidad:</b> En línea.</p>
   <div class="panel-body">
 <p><b>Duración:</b> 50 horas (año escolar 2016-2017)</p>
