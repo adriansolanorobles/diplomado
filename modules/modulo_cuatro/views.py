@@ -142,7 +142,7 @@ def update_user(request):
                 ctx = {}
                 to = []
                 ctx['nombre_completo'] = u.nombre + ' ' + u.apellido_paterno + ' ' + u.apellido_materno
-                ctx['folio'] = "DDHV" + '4G' + '-' + str(u.id)
+                ctx['folio'] = 'DDHV' + '-' + '4G' + '-' + str(u.id)
                 to.append(u.email)
 
                 from_email = 'notificaciones@habilidadesparaadolescentes.com'
