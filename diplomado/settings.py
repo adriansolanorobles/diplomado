@@ -117,6 +117,12 @@ AUTH_USER_MODEL = "users.User"
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
+EMAIL_HOST = 'mail.ntchosting.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'notificaciones@habilidadesparaadolescentes.com'
+EMAIL_HOST_PASSWORD = 'cerveza666'
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

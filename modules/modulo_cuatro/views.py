@@ -16,6 +16,11 @@ from modules.modulo_cuatro.models import ModuloCuatro
 from django.contrib.auth import authenticate,logout as salir,login as iniciar
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, EmailMessage
+from django.template import Context
+from django.template.loader import render_to_string, get_template
+from django.http import Http404
+from django.http import HttpResponse
 # Create your views here.
 def modulo_cuatro_actualiza(usuario,etapa):
     lista_modulo_cuatro = ModuloCuatro.objects.filter(user__id=usuario.id)
