@@ -137,7 +137,26 @@ def update_user(request):
                 #u.sexo = request.POST['sexo']
                 u.save()
                 modulo_cuatro_actualiza(u,2)
-                modulo_cuatro_actualiza(u,3)  
+                modulo_cuatro_actualiza(u,3)  }
+
+                ctx = {}
+                to = []
+                ctx['nombre_completo'] = u.nombre + ' ' + u.apellido_paterno + ' ' + u.apellido_materno
+                ctx['folio'] = "DDHV" + '4G' + '-' + str(u.id)
+                to.append(u.email)
+
+                from_email = 'notificaciones@habilidadesparaadolescentes.com'
+                subject = 'Asunto: Confirmación de registro al Módulo 4 - Diplomado DHV en el salón de clases 4ta. Gen'
+                bcc = ['seldor492@gmail.com','jorge_alfamar@hotmail.com']
+                body = get_template('modulo_cuatro/modulo_cuatro_registro_correo.html').render(Context(ctx))
+                msg = EmailMessage(subject=subject, body=body, to=to, 
+                from_email=from_email,
+                bcc = bcc
+                )
+                msg.content_subtype = 'html'
+                msg.send()
+
+
                 return redirect('modulo_cuatro:exito')
     else:
         return redirect('modulo_cuatro:exito')    
