@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@_i9x9qn$!96lx024t)tln!qy(lv(&(xlehnib6-)7od+0^5yx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -127,10 +127,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-EMAIL_HOST = 'mail.ntchosting.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'notificaciones@habilidadesparaadolescentes.com'
-EMAIL_HOST_PASSWORD = 'cerveza666'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]

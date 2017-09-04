@@ -16,9 +16,6 @@ from modules.modulo_cuatro.models import ModuloCuatro
 from django.contrib.auth import authenticate,logout as salir,login as iniciar
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail, EmailMessage
-from django.template import Context
-from django.template.loader import render_to_string, get_template
 # Create your views here.
 def modulo_cuatro_actualiza(usuario,etapa):
     lista_modulo_cuatro = ModuloCuatro.objects.filter(user__id=usuario.id)
@@ -134,28 +131,8 @@ def update_user(request):
                 u.telefono = request.POST['telefono']
                 #u.sexo = request.POST['sexo']
                 u.save()
-
-
                 modulo_cuatro_actualiza(u,2)
                 modulo_cuatro_actualiza(u,3)  
-                
-                ctx = {}
-                to = []
-                ctx['nombre_completo'] = u.nombre + ' ' + u.apellido_paterno + ' ' + u.apellido_materno
-                ctx['folio'] = 'DDHV' + '-' + '4G' + '-' + str(1000+int(u.id))
-                to.append(u.email)
-
-                from_email = 'notificaciones@habilidadesparaadolescentes.com'
-                subject = 'Confirmación de registro al Módulo 4 - Diplomado DHV en el salón de clases 4ª Gen.'
-                bcc = ['seldor492@gmail.com','jorge_alfamar@hotmail.com']
-                body = get_template('modulo_cuatro/modulo_cuatro_registro_correo.html').render(Context(ctx))
-                msg = EmailMessage(subject=subject, body=body, to=to, 
-                from_email=from_email,
-                bcc = bcc
-                )
-                msg.content_subtype = 'html'
-                msg.send()
-
                 return redirect('modulo_cuatro:exito')
     else:
         return redirect('modulo_cuatro:exito')    
