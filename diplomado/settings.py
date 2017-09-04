@@ -127,6 +127,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_HOST = 'mail.ntchosting.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'notificaciones@habilidadesparaadolescentes.com'
+EMAIL_HOST_PASSWORD = 'cerveza666'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]
