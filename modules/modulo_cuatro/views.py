@@ -137,7 +137,7 @@ def update_user(request):
                 #u.sexo = request.POST['sexo']
                 u.save()
                 modulo_cuatro_actualiza(u,2)
-                modulo_cuatro_actualiza(u,3)  }
+                modulo_cuatro_actualiza(u,3)  
 
                 ctx = {}
                 to = []
