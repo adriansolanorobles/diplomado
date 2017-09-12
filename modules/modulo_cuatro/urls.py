@@ -1,6 +1,6 @@
 #Urls de app landing
 from django.conf.urls import url
-from .views import proyecto_final,update_user, registro, foro, add_comentario, add_respuesta, index, login, logout, exito, segunda_etapa, add_archivo
+from .views import proyecto_final,update_user, registro, foro, add_comentario, add_respuesta, index, login, logout, exito, archivo_exito,  segunda_etapa, add_archivo
 app_name = 'modulo_cuatro'
 urlpatterns = [
     url(r'^registro/',registro, name="registro"),
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^login/$',login, name="login"),
     url(r'^logout/$',logout, name="logout"),
     url(r'^exito/$',exito, name="exito"),
+    url(r'^archivo_exito/$',archivo_exito, name="archivo_exito"),
     url(r'^segunda_etapa/$',segunda_etapa, name="segunda_etapa"),
     url(r'^add_archivo/$',add_archivo, name="add_archivo"),
     url(r'^proyecto_final/$',proyecto_final, name="proyecto_final"),

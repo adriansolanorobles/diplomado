@@ -21,6 +21,7 @@ from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.http import Http404
 from django.http import HttpResponse
+
 # Create your views here.
 def modulo_cuatro_actualiza(usuario,etapa):
     lista_modulo_cuatro = ModuloCuatro.objects.filter(user__id=usuario.id)
@@ -57,7 +58,7 @@ def add_archivo(request):
                 documento.etapa = e
                 documento.save()
                 modulo_cuatro_actualiza(u,request.POST['etapa_id'])
-                return redirect('modulo_cuatro:exito')
+                return redirect('modulo_cuatro:archivo_exito')
     else:
         return redirect('modulo_cuatro:exito')
    
@@ -229,3 +230,7 @@ def add_respuesta(request):
 @login_required(login_url="modulo_cuatro:login")
 def exito(request):
     return render(request,'modulo_cuatro/exito.html')
+
+@login_required(login_url="modulo_cuatro:login")
+def archivo_exito(request):
+    return render(request,'modulo_cuatro/archivo_exito.html')
