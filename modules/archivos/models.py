@@ -12,7 +12,6 @@ class Archivo(models.Model):
     
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     upload = models.FileField(upload_to=content_file_name)
-    upload_calificado = models.FileField(upload_to=content_file_name, null=True,blank=True)
     etapa = models.ForeignKey(Etapa,on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
