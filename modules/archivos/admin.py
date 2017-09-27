@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Archivo
 
-# Register your models here.
+class ArchivoAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Archivo, ArchivoAdmin)
