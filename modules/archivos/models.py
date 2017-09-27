@@ -2,6 +2,7 @@ from django.db import models
 from modules.users.models import User
 from modules.etapas.models import Etapa
 import time
+import os
 
 def content_file_name(instance, filename):
         ext = filename.split('.')[-1]
