@@ -13,6 +13,8 @@ class UserAdmin(UA):
 
         }),
 
+        (('Permissions'), {'fields': ('groups', 'user_permissions')}),
+
     )
 
     add_fieldsets = (

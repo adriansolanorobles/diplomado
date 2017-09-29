@@ -138,8 +138,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]
 
 
-MEDIA_URL = "/media/archivos"
-MEDIA_ROOT = os.path.join(os.getcwd(),'media/archivos')
+MEDIA_URL = "/media/archivos/"
+MEDIA_ROOT = os.path.join(os.getcwd(),'media/archivos/')
 
 
 try:
